@@ -71,7 +71,7 @@ export function SetNavDropdownFlag(newValue) {
 }
 export function SetDropdownIndex(newValue) {
   dropdownIndex = newValue;
-  if (dropdownIndex === 0) instructionVidsCount = 5;
+  if (dropdownIndex === 0) instructionVidsCount = 3;
   else instructionVidsCount = 3;
 }
 export function SetActiveSection(newValue) {
@@ -235,15 +235,15 @@ export const PlaySectionVideo = function (vidName, vidIndex, pauseEnable) {
     .play();
 };
 export const ActivateSectionButtons = function () {
-  if (dropdownIndex === 1) HideInstructionCtrlBtns();
-  else {
-    ctrlBtnWrapper
-      .querySelector(".section-wrap-btns.instructions")
-      .querySelectorAll(".ctrl-btn.instructions")[3].style.display = "flex";
-    ctrlBtnWrapper
-      .querySelector(".section-wrap-btns.instructions")
-      .querySelectorAll(".ctrl-btn.instructions")[4].style.display = "flex";
-  }
+  // if (dropdownIndex === 1) HideInstructionCtrlBtns();
+  // else {
+  //   ctrlBtnWrapper
+  //     .querySelector(".section-wrap-btns.instructions")
+  //     .querySelectorAll(".ctrl-btn.instructions")[3].style.display = "flex";
+  //   ctrlBtnWrapper
+  //     .querySelector(".section-wrap-btns.instructions")
+  //     .querySelectorAll(".ctrl-btn.instructions")[4].style.display = "flex";
+  // }
   allSectionBtnWrappers.forEach(function (el) {
     el.classList.remove("active");
   });

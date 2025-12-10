@@ -1,4 +1,4 @@
-console.log("CraneSense - Dec 2, 2025 - START");
+console.log("CraneSense - Dec 2, 2025");
 //.......................................................................
 //.......................................................................
 //IMPORTS
@@ -62,7 +62,7 @@ const MainAllNavLinks = function (navLink, dropdownIndex) {
   clearTimeout(instructions.instructionVidTimer);
   features.featureTextTimer = null;
   features.featureVidTimer = null;
-  components.optsDropdown.classList.remove("active");
+  // components.optsDropdown.classList.remove("active");
   instructions.instructionVidTimer = null;
   global.pauseWrapper.style.pointerEvents = "none";
   global.pauseWrapper.classList.remove("active");
@@ -141,40 +141,40 @@ const MainCtrlBtnsFeatures = function () {
 //.......................................................................
 //.......................................................................
 //COMPONENTS
-const MainComponentVidsViewsEnds = function () {
-  global.DeactivateActivateSectionImage(global.currentViewName);
-  global.DeactivateActivateSectionText("main");
-  components.ctrlBtnWrapperComponents
-    .querySelectorAll(".ctrl-btn")
-    .forEach(function (el) {
-      el.classList.remove("active");
-    });
-  global.DeactivateActivateCtrlBtnRange(
-    "components",
-    global.startBtnRange,
-    global.endBtnRange
-  );
-  components.ctrlBtnWrapperComponents.classList.add("active");
-};
+// const MainComponentVidsViewsEnds = function () {
+//   global.DeactivateActivateSectionImage(global.currentViewName);
+//   global.DeactivateActivateSectionText("main");
+//   components.ctrlBtnWrapperComponents
+//     .querySelectorAll(".ctrl-btn")
+//     .forEach(function (el) {
+//       el.classList.remove("active");
+//     });
+//   global.DeactivateActivateCtrlBtnRange(
+//     "components",
+//     global.startBtnRange,
+//     global.endBtnRange
+//   );
+//   components.ctrlBtnWrapperComponents.classList.add("active");
+// };
 const MainVidsComponentDatasheetsEnds = function () {
   components.DisplayDataSheet();
 };
-const MainOptionsMenuShow = function () {
-  components.optsDropdown.classList.add("active");
-};
-const MainOptionsMenuHide = function () {
-  components.optsDropdown.classList.remove("active");
-};
-const MainOptionsMenuDropdownClick = function (clickedBtnContent) {
-  components.optsMenuWrapper.classList.remove("active");
-  if (global.currentViewName !== clickedBtnContent) {
-    global.SetCurrentViewName(clickedBtnContent);
-    components.optsMenuBtn.textContent = global.currentViewName;
-    global.PrepSectionAndPlayVideo(global.currentViewName);
-    components.ctrlBtnWrapperComponents.classList.remove("active");
-  }
-  components.optsDropdown.classList.remove("active");
-};
+// const MainOptionsMenuShow = function () {
+//   components.optsDropdown.classList.add("active");
+// };
+// const MainOptionsMenuHide = function () {
+//   components.optsDropdown.classList.remove("active");
+// };
+// const MainOptionsMenuDropdownClick = function (clickedBtnContent) {
+//   components.optsMenuWrapper.classList.remove("active");
+//   if (global.currentViewName !== clickedBtnContent) {
+//     global.SetCurrentViewName(clickedBtnContent);
+//     components.optsMenuBtn.textContent = global.currentViewName;
+//     global.PrepSectionAndPlayVideo(global.currentViewName);
+//     components.ctrlBtnWrapperComponents.classList.remove("active");
+//   }
+//   components.optsDropdown.classList.remove("active");
+// };
 const MainTextImgBtn = function () {
   components.textImgBtnLabel === "image"
     ? (components.textImgBtn.textContent = "text")
@@ -196,7 +196,7 @@ const MainBackBtn = function () {
   global.ActivateSectionButtons();
 };
 const MainCtrlBtnsComponents = function () {
-  components.optsMenuWrapper.classList.remove("active");
+  // components.optsMenuWrapper.classList.remove("active");
   global.PrepSectionAndPlayVideo("datasheets", global.ctrlBtnIndex);
   components.ctrlBtnWrapperComponents.classList.remove("active");
 };
@@ -302,12 +302,12 @@ const init = function () {
   navigation.AddHandlerAllCtrlBtnsMouseEnter(MainAllCtrlBtnsMouseEnter);
   navigation.AddHandlerAllCtrlBtnsMouseLeave(MainAllCtrlBtnsMouseLeave);
   features.AddHandlerCtrlBtnWrapperFeatures(MainCtrlBtnsFeatures);
-  components.AddHandlerOptionsMenuBtnClick(MainOptionsMenuShow);
-  components.AddHandlerOptionsMenuWrapperHoverIn(MainOptionsMenuShow);
-  components.AddHandlerOptionsMenuWrapperHoverOut(MainOptionsMenuHide);
-  components.AddHandlerOptionsMenuDropdownClick(MainOptionsMenuDropdownClick);
+  // components.AddHandlerOptionsMenuBtnClick(MainOptionsMenuShow);
+  // components.AddHandlerOptionsMenuWrapperHoverIn(MainOptionsMenuShow);
+  // components.AddHandlerOptionsMenuWrapperHoverOut(MainOptionsMenuHide);
+  // components.AddHandlerOptionsMenuDropdownClick(MainOptionsMenuDropdownClick);
   components.AddHandlerBackBtn(MainBackBtn);
-  components.AddHandlerVidsComponentViewsEnds(MainComponentVidsViewsEnds);
+  // components.AddHandlerVidsComponentViewsEnds(MainComponentVidsViewsEnds);
   components.AddHandlerTextImgBtn(MainTextImgBtn);
   components.AddHandlerCtrlBtnWrapperComponents(MainCtrlBtnsComponents);
   instructions.AddHandlerVidsInstructionsEnds(MainInstructionsVidsEnds);

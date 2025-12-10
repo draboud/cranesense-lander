@@ -7,7 +7,7 @@
   var DELAY_BEFORE_UI_START = 1500;
   var DELAY_BEFORE_FEATURE_TEXT = 1e3;
   var PAUSE_AFTER_FEATURE_END = 1500;
-  var NO_OF_INSTRUCTION_VIDS = 5;
+  var NO_OF_INSTRUCTION_VIDS = 3;
   var PAUSE_BETWEEN_INSTRUCTION_VIDS = 1e3;
   var INSTRUCTION_VIDS_LOOPING = true;
   var COMP_BTNS_START_RANGE_A = 0;
@@ -78,7 +78,7 @@
   }
   function SetDropdownIndex(newValue) {
     dropdownIndex = newValue;
-    if (dropdownIndex === 0) instructionVidsCount = 5;
+    if (dropdownIndex === 0) instructionVidsCount = 3;
     else instructionVidsCount = 3;
   }
   function SetActiveSection(newValue) {
@@ -86,9 +86,6 @@
   }
   function SetActiveSectionName(newValue) {
     activeSectionName = newValue;
-  }
-  function SetCurrentViewName(newValue) {
-    currentViewName = newValue;
   }
   function SetPauseFlag(newValue) {
     pauseFlag = newValue;
@@ -200,11 +197,6 @@
     activeSection.querySelector(`.section-wrap-vids.${vidName}`).querySelectorAll(".video-wrap.mobile-p")[vidIndex].querySelector(".vid-mobile-p").play();
   };
   var ActivateSectionButtons = function() {
-    if (dropdownIndex === 1) HideInstructionCtrlBtns();
-    else {
-      ctrlBtnWrapper.querySelector(".section-wrap-btns.instructions").querySelectorAll(".ctrl-btn.instructions")[3].style.display = "flex";
-      ctrlBtnWrapper.querySelector(".section-wrap-btns.instructions").querySelectorAll(".ctrl-btn.instructions")[4].style.display = "flex";
-    }
     allSectionBtnWrappers.forEach(function(el) {
       el.classList.remove("active");
     });
@@ -229,12 +221,6 @@
       el.classList.remove("active");
       if (index >= startIndex && index <= endIndex) el.classList.add("active");
     });
-  };
-  var HideInstructionCtrlBtns = function() {
-    {
-      ctrlBtnWrapper.querySelector(".section-wrap-btns.instructions").querySelectorAll(".ctrl-btn.instructions")[3].style.display = "none";
-      ctrlBtnWrapper.querySelector(".section-wrap-btns.instructions").querySelectorAll(".ctrl-btn.instructions")[4].style.display = "none";
-    }
   };
 
   // src/1_features.js
@@ -276,10 +262,14 @@
     //............................................................
     //DEFINITIONS
     componentSection = document.querySelector(".section_datasheets");
-    allVidsComponentViews = [
-      sectionComponents.querySelector(".section-wrap-vids.view-a").querySelector(".vid"),
-      sectionComponents.querySelector(".section-wrap-vids.view-b").querySelector(".vid")
-    ];
+    // allVidsComponentViews = [
+    //   global.sectionComponents
+    //     .querySelector(".section-wrap-vids.view-a")
+    //     .querySelector(".vid"),
+    //   global.sectionComponents
+    //     .querySelector(".section-wrap-vids.view-b")
+    //     .querySelector(".vid"),
+    // ];
     allVidsComponentDatasheets = sectionComponents.querySelector(".section-wrap-vids.datasheets").querySelectorAll(".vid");
     datasheetsAllWrapper = sectionComponents.querySelector(
       ".section-wrap-comp-data"
@@ -288,9 +278,9 @@
     ctrlBtnWrapperComponents = ctrlBtnWrapper.querySelector(
       ".section-wrap-btns.components"
     );
-    optsMenuWrapper = sectionComponents.querySelector(".opts-wrapper");
-    optsMenuBtn = sectionComponents.querySelector(".opts-menu_btn");
-    optsDropdown = sectionComponents.querySelector(".opts-dropdown");
+    // optsMenuWrapper = global.sectionComponents.querySelector(".opts-wrapper");
+    // optsMenuBtn = global.sectionComponents.querySelector(".opts-menu_btn");
+    // optsDropdown = global.sectionComponents.querySelector(".opts-dropdown");
     dimmer = sectionComponents.querySelector(".dimmer");
     textImgBtn = sectionComponents.querySelector(".text-img-btn");
     textImgBtnLabel = "image";
@@ -308,43 +298,43 @@
         });
       });
     };
-    AddHandlerOptionsMenuWrapperHoverIn = function(handler) {
-      this.optsMenuWrapper.addEventListener("mouseenter", function() {
-        handler();
-      });
-    };
-    AddHandlerOptionsMenuWrapperHoverOut = function(handler) {
-      this.optsMenuWrapper.addEventListener("mouseleave", function() {
-        handler();
-      });
-    };
-    AddHandlerOptionsMenuBtnClick = function(handler) {
-      this.optsMenuBtn.addEventListener("click", function() {
-        handler();
-      });
-    };
-    AddHandlerOptionsMenuDropdownClick = function(handler) {
-      this.optsDropdown.addEventListener("click", function(e) {
-        const clicked = e.target.closest(".opts-menu_link");
-        const clickedBtnContent = clicked.textContent;
-        if (!clicked) return;
-        handler(clickedBtnContent);
-      });
-    };
-    AddHandlerVidsComponentViewsEnds = function(handler) {
-      this.allVidsComponentViews.forEach((el) => {
-        el.addEventListener("ended", () => {
-          if (currentViewName === "view-a") {
-            SetStartBtnRange(0);
-            SetEndBtnRange(4);
-          } else {
-            SetStartBtnRange(5);
-            SetEndBtnRange(6);
-          }
-          handler();
-        });
-      });
-    };
+    // AddHandlerOptionsMenuWrapperHoverIn = function (handler) {
+    //   this.optsMenuWrapper.addEventListener("mouseenter", function () {
+    //     handler();
+    //   });
+    // };
+    // AddHandlerOptionsMenuWrapperHoverOut = function (handler) {
+    //   this.optsMenuWrapper.addEventListener("mouseleave", function () {
+    //     handler();
+    //   });
+    // };
+    // AddHandlerOptionsMenuBtnClick = function (handler) {
+    //   this.optsMenuBtn.addEventListener("click", function () {
+    //     handler();
+    //   });
+    // };
+    // AddHandlerOptionsMenuDropdownClick = function (handler) {
+    //   this.optsDropdown.addEventListener("click", function (e) {
+    //     const clicked = e.target.closest(".opts-menu_link");
+    //     const clickedBtnContent = clicked.textContent;
+    //     if (!clicked) return;
+    //     handler(clickedBtnContent);
+    //   });
+    // };
+    // AddHandlerVidsComponentViewsEnds = function (handler) {
+    //   this.allVidsComponentViews.forEach((el) => {
+    //     el.addEventListener("ended", () => {
+    //       if (global.currentViewName === "view-a") {
+    //         global.SetStartBtnRange(0);
+    //         global.SetEndBtnRange(4);
+    //       } else {
+    //         global.SetStartBtnRange(5);
+    //         global.SetEndBtnRange(6);
+    //       }
+    //       handler();
+    //     });
+    //   });
+    // };
     AddHandlerTextImgBtn = function(handler) {
       this.textImgBtn.addEventListener("click", function() {
         handler();
@@ -564,7 +554,6 @@
           DeactivateActivateCurrentCtrlButtons("features");
           break;
         case "components":
-          components_default.optsMenuWrapper.classList.remove("active");
           DeactivateActivateSectionImage(currentViewName);
           [
             components_default.datasheetsAllWrapper,
@@ -598,7 +587,7 @@
   var nav_default = new navigation();
 
   // src/main.js
-  console.log("CraneSense - Dec 2, 2025 - START");
+  console.log("CraneSense - Dec 2, 2025");
   var MainStartButton = function() {
     startButtonWrapper.classList.remove("active");
     setTimeout(function() {
@@ -634,7 +623,6 @@
     clearTimeout(instructions_default.instructionVidTimer);
     features_default.featureTextTimer = null;
     features_default.featureVidTimer = null;
-    components_default.optsDropdown.classList.remove("active");
     instructions_default.instructionVidTimer = null;
     pauseWrapper.style.pointerEvents = "none";
     pauseWrapper.classList.remove("active");
@@ -706,37 +694,8 @@
       DeactivateActivateSectionText("feature", ctrlBtnIndex);
     }, DELAY_BEFORE_FEATURE_TEXT);
   };
-  var MainComponentVidsViewsEnds = function() {
-    DeactivateActivateSectionImage(currentViewName);
-    DeactivateActivateSectionText("main");
-    components_default.ctrlBtnWrapperComponents.querySelectorAll(".ctrl-btn").forEach(function(el) {
-      el.classList.remove("active");
-    });
-    DeactivateActivateCtrlBtnRange(
-      "components",
-      startBtnRange,
-      endBtnRange
-    );
-    components_default.ctrlBtnWrapperComponents.classList.add("active");
-  };
   var MainVidsComponentDatasheetsEnds = function() {
     components_default.DisplayDataSheet();
-  };
-  var MainOptionsMenuShow = function() {
-    components_default.optsDropdown.classList.add("active");
-  };
-  var MainOptionsMenuHide = function() {
-    components_default.optsDropdown.classList.remove("active");
-  };
-  var MainOptionsMenuDropdownClick = function(clickedBtnContent) {
-    components_default.optsMenuWrapper.classList.remove("active");
-    if (currentViewName !== clickedBtnContent) {
-      SetCurrentViewName(clickedBtnContent);
-      components_default.optsMenuBtn.textContent = currentViewName;
-      PrepSectionAndPlayVideo(currentViewName);
-      components_default.ctrlBtnWrapperComponents.classList.remove("active");
-    }
-    components_default.optsDropdown.classList.remove("active");
   };
   var MainTextImgBtn = function() {
     components_default.textImgBtnLabel === "image" ? components_default.textImgBtn.textContent = "text" : components_default.textImgBtn.textContent = "image";
@@ -755,7 +714,6 @@
     ActivateSectionButtons();
   };
   var MainCtrlBtnsComponents = function() {
-    components_default.optsMenuWrapper.classList.remove("active");
     PrepSectionAndPlayVideo("datasheets", ctrlBtnIndex);
     components_default.ctrlBtnWrapperComponents.classList.remove("active");
   };
@@ -837,12 +795,7 @@
     nav_default.AddHandlerAllCtrlBtnsMouseEnter(MainAllCtrlBtnsMouseEnter);
     nav_default.AddHandlerAllCtrlBtnsMouseLeave(MainAllCtrlBtnsMouseLeave);
     features_default.AddHandlerCtrlBtnWrapperFeatures(MainCtrlBtnsFeatures);
-    components_default.AddHandlerOptionsMenuBtnClick(MainOptionsMenuShow);
-    components_default.AddHandlerOptionsMenuWrapperHoverIn(MainOptionsMenuShow);
-    components_default.AddHandlerOptionsMenuWrapperHoverOut(MainOptionsMenuHide);
-    components_default.AddHandlerOptionsMenuDropdownClick(MainOptionsMenuDropdownClick);
     components_default.AddHandlerBackBtn(MainBackBtn);
-    components_default.AddHandlerVidsComponentViewsEnds(MainComponentVidsViewsEnds);
     components_default.AddHandlerTextImgBtn(MainTextImgBtn);
     components_default.AddHandlerCtrlBtnWrapperComponents(MainCtrlBtnsComponents);
     instructions_default.AddHandlerVidsInstructionsEnds(MainInstructionsVidsEnds);

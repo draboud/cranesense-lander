@@ -125,7 +125,7 @@ class navigation {
         global.DeactivateActivateCurrentCtrlButtons("features");
         break;
       case "components":
-        components.optsMenuWrapper.classList.remove("active");
+        // components.optsMenuWrapper.classList.remove("active");
         global.DeactivateActivateSectionImage(global.currentViewName);
         [
           components.datasheetsAllWrapper,

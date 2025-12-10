@@ -10,14 +10,14 @@ class components {
   //............................................................
   //DEFINITIONS
   componentSection = document.querySelector(".section_datasheets");
-  allVidsComponentViews = [
-    global.sectionComponents
-      .querySelector(".section-wrap-vids.view-a")
-      .querySelector(".vid"),
-    global.sectionComponents
-      .querySelector(".section-wrap-vids.view-b")
-      .querySelector(".vid"),
-  ];
+  // allVidsComponentViews = [
+  //   global.sectionComponents
+  //     .querySelector(".section-wrap-vids.view-a")
+  //     .querySelector(".vid"),
+  //   global.sectionComponents
+  //     .querySelector(".section-wrap-vids.view-b")
+  //     .querySelector(".vid"),
+  // ];
   allVidsComponentDatasheets = global.sectionComponents
     .querySelector(".section-wrap-vids.datasheets")
     .querySelectorAll(".vid");
@@ -29,9 +29,9 @@ class components {
   ctrlBtnWrapperComponents = global.ctrlBtnWrapper.querySelector(
     ".section-wrap-btns.components"
   );
-  optsMenuWrapper = global.sectionComponents.querySelector(".opts-wrapper");
-  optsMenuBtn = global.sectionComponents.querySelector(".opts-menu_btn");
-  optsDropdown = global.sectionComponents.querySelector(".opts-dropdown");
+  // optsMenuWrapper = global.sectionComponents.querySelector(".opts-wrapper");
+  // optsMenuBtn = global.sectionComponents.querySelector(".opts-menu_btn");
+  // optsDropdown = global.sectionComponents.querySelector(".opts-dropdown");
   dimmer = global.sectionComponents.querySelector(".dimmer");
   textImgBtn = global.sectionComponents.querySelector(".text-img-btn");
   textImgBtnLabel = "image";
@@ -49,43 +49,43 @@ class components {
       });
     });
   };
-  AddHandlerOptionsMenuWrapperHoverIn = function (handler) {
-    this.optsMenuWrapper.addEventListener("mouseenter", function () {
-      handler();
-    });
-  };
-  AddHandlerOptionsMenuWrapperHoverOut = function (handler) {
-    this.optsMenuWrapper.addEventListener("mouseleave", function () {
-      handler();
-    });
-  };
-  AddHandlerOptionsMenuBtnClick = function (handler) {
-    this.optsMenuBtn.addEventListener("click", function () {
-      handler();
-    });
-  };
-  AddHandlerOptionsMenuDropdownClick = function (handler) {
-    this.optsDropdown.addEventListener("click", function (e) {
-      const clicked = e.target.closest(".opts-menu_link");
-      const clickedBtnContent = clicked.textContent;
-      if (!clicked) return;
-      handler(clickedBtnContent);
-    });
-  };
-  AddHandlerVidsComponentViewsEnds = function (handler) {
-    this.allVidsComponentViews.forEach((el) => {
-      el.addEventListener("ended", () => {
-        if (global.currentViewName === "view-a") {
-          global.SetStartBtnRange(0);
-          global.SetEndBtnRange(4);
-        } else {
-          global.SetStartBtnRange(5);
-          global.SetEndBtnRange(6);
-        }
-        handler();
-      });
-    });
-  };
+  // AddHandlerOptionsMenuWrapperHoverIn = function (handler) {
+  //   this.optsMenuWrapper.addEventListener("mouseenter", function () {
+  //     handler();
+  //   });
+  // };
+  // AddHandlerOptionsMenuWrapperHoverOut = function (handler) {
+  //   this.optsMenuWrapper.addEventListener("mouseleave", function () {
+  //     handler();
+  //   });
+  // };
+  // AddHandlerOptionsMenuBtnClick = function (handler) {
+  //   this.optsMenuBtn.addEventListener("click", function () {
+  //     handler();
+  //   });
+  // };
+  // AddHandlerOptionsMenuDropdownClick = function (handler) {
+  //   this.optsDropdown.addEventListener("click", function (e) {
+  //     const clicked = e.target.closest(".opts-menu_link");
+  //     const clickedBtnContent = clicked.textContent;
+  //     if (!clicked) return;
+  //     handler(clickedBtnContent);
+  //   });
+  // };
+  // AddHandlerVidsComponentViewsEnds = function (handler) {
+  //   this.allVidsComponentViews.forEach((el) => {
+  //     el.addEventListener("ended", () => {
+  //       if (global.currentViewName === "view-a") {
+  //         global.SetStartBtnRange(0);
+  //         global.SetEndBtnRange(4);
+  //       } else {
+  //         global.SetStartBtnRange(5);
+  //         global.SetEndBtnRange(6);
+  //       }
+  //       handler();
+  //     });
+  //   });
+  // };
   AddHandlerTextImgBtn = function (handler) {
     this.textImgBtn.addEventListener("click", function () {
       handler();
